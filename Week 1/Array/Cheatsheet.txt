@@ -1,0 +1,46 @@
+Arrays hold values of the same type at contiguous memory locations. In arrays, we are usually worried about two things position/index
+of an element and the element itself. 
+
+Advantages:
+Stores multiple elements of the same type in one single variable name
+Access elements fast with index versus linked list where you have to transverse from the head
+
+Disadvantages:
+Addition and removal of elements into/from middle of array is slow since remaining elements need to be shifted to accommodate (unless added/removed from end)
+Certain languages array size is fixed and if the size increase a new array is created and existing elements copied over (JS not fixed)
+
+Common terms:
+Subarray - range of continuous values within an array
+[2, 3, 6, 1, 5, 4], [3, 6, 1] is a subarray 
+
+Subsequence- A sequence that can be derived from a given sequence by deleting some or no elements without changing the order of the remaining elements
+[2, 3, 6, 1, 5, 4], [3, 1, 5] is a subsequence
+
+Things to look out for during interviews:
+Clarify duplicate values in the array. Would presence of dup values affect answer? Does it make question simpler or harder?
+When iterating through an array be careful not to go out of bounds
+Be careful about slicing or concatenating arrays use start and end indices to demarcate a subarray/range when possible
+
+Techniques:
+Sliding Window
+Two Pointers
+Traversing from the right
+Sorting the array 
+Precomputation
+Index as a hash key 
+Traversing the array more than once
+
+Essential Questions:
+Two Sum
+Best Time to Buy and Sell Stock
+Product of Array Except Self
+Maximum Subarray
+
+Recommended Practice Questions:
+Contains Duplicate
+Maximum Product Subarray
+Search in Rotated Sorted Array
+3Sum
+Container With Most Water
+Sliding Window Maximum
+Recommended cours
