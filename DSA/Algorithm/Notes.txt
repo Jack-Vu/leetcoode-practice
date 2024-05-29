@@ -1,0 +1,89 @@
+A good algorithm has well defined inputs and well defined out puts
+We evaluate the performance of an algorithm in terms of input size
+Time complexity - Amount of time taken by an algo to run as a function of input size
+Space complexity - Amount of memory taken by an algo to run as a function of input size
+
+
+By evaluating against the input size, the analysis is not only machine independent but the comparison is also more appropriate
+
+There is no solution that works every single time use the best solution given your constraints
+
+If you app needs to run quick and has plenty of memory to work with you don't need to worry about space complexity
+
+If you have very little memory to work with you should pick a slower solution requiring less space
+
+1. Big O - Worst case complexity
+2. Omega - Best case complexity 
+3. Theta - Average case complexity
+
+Mostly focus on Big O 
+
+2 important characteristics
+- expressed in terms of input
+- focuses on bigger picture
+
+function summation (n) { // n = 4
+    let sum = 0 // runs 1 time 
+    for (let i = 1; i <= n; i++) {
+        sum +=i; // runs 4 times
+    }
+    return sum // runs 1 time
+}
+
+// this means the function above is n + 2 or O(n) - linear time complexity
+
+Linear time complexity as the input size increases time complexity also increases
+
+A loop usually means time complexity is at least linear of course there is exceptions
+
+function summation(n) {
+    return (n * (n + 1)) / 2
+}
+
+// time complexity is O(1) constant time complexity
+
+for (i = 1; i <= n; i++) {
+    for (j = 1; j <= i ; j++) {
+        // some code
+    }
+}
+
+// usually nested for loops mean a O(n^2) or quadratic time complexity
+// similar with 3 nested loops it would then be O(n^3) or cubic
+
+if the input size reduces by half every iteration the time complexity is O(logn) logarithmic time complexity
+
+Space complexity:
+O(1) Constant - if algo doesn't need extra memory and isn't dependent on the input size
+// example would be sorting algorithms that sort the original array and doesn't require using additional arrays
+O(n) Linear - if the extra space grows as the input size grows
+O(logn) Logarithmic - extra space grows but not at the same rate as the input size
+
+Big O trend Map:
+Good: O(logn), O(1)
+Fair: O(n)
+Bad: O(nlogn) 
+Horrible: the rest like O(n^2)
+
+Object and Arrays Big O
+
+Objects: a collection of key value pairs
+insert and removal O(1)
+access O(1)
+search O(n)
+
+Object functions
+Object.keys() O(n)
+Object.values() O(n)
+Object.entries() O(n)
+
+Arrays: is an ordered collection of values
+insert and removal at end O(1)
+insert and removal at beginning O(n)
+access O(1)
+search O(n)
+
+Array functions
+push/pop O(1)
+shift/unshift/concat/slice/splice O(n)
+forEach/map/filter/reduce O(n)
