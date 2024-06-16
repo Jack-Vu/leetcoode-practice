@@ -87,4 +87,5 @@ Array functions
 push/pop O(1)
 shift/unshift/concat/slice/splice O(n)
 forEach/map/filter/reduce O(n)
-yes
+
+Material above reviewed on 06/15/2024
