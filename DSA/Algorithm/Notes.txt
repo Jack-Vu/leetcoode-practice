@@ -89,3 +89,8 @@ shift/unshift/concat/slice/splice O(n)
 forEach/map/filter/reduce O(n)
 
 Material above reviewed on 06/15/2024
+
+Recursion is a problem solving technique where the solution depends on the solution to smaller instances of the same problem
+Recursion is when a function calls itself
+It is a great way to simplify your solution 
+Help break down problem into smaller versions of the same problem can be very useful
