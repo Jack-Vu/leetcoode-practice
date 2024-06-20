@@ -35,6 +35,21 @@ function fibRecurArray(n) {
 }
 
 // Big-O = O(n)
-console.log(fibRecursive(3));
-console.log(fibRecurArray(3));
-console.log(fibonacci(7));
+// console.log(fibRecursive(3));
+console.log(fibRecurArray(7));
+// console.log(fibonacci(7));
+
+function fibRecurArrayV2(n) {
+  if (n === 0) {
+    return [0];
+  }
+  if (n === 1) {
+    return [0, 1];
+  }
+
+  const array = fibRecurArrayV2(n - 1);
+  return [...array, array[n - 1] + array[n - 2]];
+}
+
+
+console.log(fibRecurArrayV2(7))
