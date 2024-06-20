@@ -14,11 +14,8 @@ function fibonacci(n) {
 }
 
 function fibRecursive(n) {
-  if (n === 0) {
-    return 0;
-  }
-  if (n === 1) {
-    return 1;
+  if (n < 2) {
+    return n; // this is cleaner then having an if statement for 0 and 1 since you are returning them respectively 
   }
   return fibRecursive(n - 1) + fibRecursive(n - 2);
 }
@@ -51,5 +48,6 @@ function fibRecurArrayV2(n) {
   return [...array, array[n - 1] + array[n - 2]];
 }
 
-
+// Big-O = 2^n
+// not as good as the iterative version of fib so its not as preferred since you'll be running the functions more time you'd just loop through it 
 console.log(fibRecurArrayV2(7))

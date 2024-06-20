@@ -17,8 +17,17 @@ function factorialRecursive(n) {
   return n * factorialRecursive(n - 1);
 }
 
-console.log(factorial(5));
-console.log(factorialRecursive(4));
-
+// console.log(factorial(5));
+// console.log(factorialRecursive(4));
 
 // Big-O = O(n)
+
+// n! = n*(n-1)!
+function factRecursiveV2(n) {
+  if (n === 0) {
+    return 1;
+  }
+  return n * factRecursiveV2(n - 1);
+}
+//Big-O = O(n)
+console.log(factRecursiveV2(4));
