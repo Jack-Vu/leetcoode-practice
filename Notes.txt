@@ -15,3 +15,14 @@ this is a computational cost and is one of the weakness of this DS
 
 Objects (Hash tables)
 
+an object is a collection of key-value pairs this structure is called map, dictionary or hash-table 
+each key as t obe unique within an object and you cant have two keys with the same name
+objects can store both values and functions
+values are called properties and functions are called methods
+to access properties you can use two different syntaxes object.property or object["property"] to access methods we call object.method()
+assigning new values is pretty straight forward
+obj.prop4 =125
+obj.["prop5"] = "something"
+obj.prop6 = () => function
+objects are a good way to group together data with something in common or somehow related
+
