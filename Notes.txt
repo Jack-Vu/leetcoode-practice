@@ -1,0 +1,17 @@
+Javascript has primitive (built in) and non-primitive (not built in) data structures
+
+Primitive data structures come by default when programming lang and can be implemented out of the box (array and object)
+Non-primitive data structures don't come by default and you need to code them to use them
+
+Arrays
+
+an array is a collection of items stored at contiguous memory locations
+each item can be accessed through their index starting at index 0 
+they have a length property to define the number of elements it contains
+in JS arrays can store values of any type in the same array and the length is dynamic
+you can have multidimensional arrays
+when adding/deleting from the middle or beginning of an array forces indexes of all the elements that come after to be chnages
+this is a computational cost and is one of the weakness of this DS
+
+Objects (Hash tables)
+
