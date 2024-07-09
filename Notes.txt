@@ -1,6 +1,6 @@
-Javascript has primitive (built in) and non-primitive (not built in) data structures
+Javascript has primitive(built in) and non-primitive(not built in) data structures
 
-Primitive data structures come by default when programming lang and can be implemented out of the box (array and object)
+Primitive data structures come by default when programming lang and can be implemented out of the box(array and object)
 Non-primitive data structures don't come by default and you need to code them to use them
 
 Arrays
@@ -13,7 +13,7 @@ you can have multidimensional arrays
 when adding/deleting from the middle or beginning of an array forces indexes of all the elements that come after to be chnages
 this is a computational cost and is one of the weakness of this DS
 
-Objects (Hash tables)
+Objects(Hash tables)
 
 an object is a collection of key-value pairs this structure is called map, dictionary or hash-table 
 each key as t obe unique within an object and you cant have two keys with the same name
@@ -23,13 +23,13 @@ to access properties you can use two different syntaxes object.property or objec
 assigning new values is pretty straight forward
 obj.prop4 =125
 obj.["prop5"] = "something"
-obj.prop6 = () => function
+obj.prop6 =() => function
 objects are a good way to group together data with something in common or somehow related
 
 Stacks
 
 stacks are data structure that stores information in form of a list 
-they allow adding and removing elements under a LIFO pattern (last in, first out)
+they allow adding and removing elements under a LIFO pattern(last in, first out)
 elements can not be added or removed out of order
 useful when need to make sure elements follow the LIFO pattern
 some functionalities are call stack, managing function invocation, undo/redo functionality many programs offer
@@ -42,7 +42,7 @@ first we create a class for each node within the stack
 {
     class Node {
         // each node has two properties, its value and a pointer that indicates the node that follows
-        constructor (value) {
+        constructor(value) {
             this.value = value
             this.next = null
         }
@@ -52,13 +52,13 @@ first we create a class for each node within the stack
 
     class Stack {
         // the stack has three properties, the first node, the last node and the stack size
-        constructor () {
+        constructor() {
             this.first = null
             this.last = null
             this.size = 0
         }
           // The push method receives a value and adds it to the "top" of the stack
-        push (val) {
+        push(val) {
             var newNode = new Node(val)
             if(!this.first) {
                 this.first = newNode
@@ -71,12 +71,68 @@ first we create a class for each node within the stack
             return ++this.size
         }
          // The pop method eliminates the element at the "top" of the stack and returns its value
-        pop () {
+        pop() {
             if(!this.first) {
                 return null
             }
             var temp = this.first
             if(this.first === this.last) {
+                this.last = null
+            }
+            this.first = this.first.next
+            this.size--
+            return temp.value
+        }
+    }
+}
+
+Queues
+
+queues work in a similar to stacks but the elements follow a different pattern for addition and removal
+queues follow a FIFO pattern(first in, first out) in queues elements can't be added or removed out of order the always follow the FIFO pattern
+similar to buying food in a line the first queued is the first to be served and the first one to be out
+some functionalities are background tasks printing and task processing
+the simplest way to implement a queue is using an array with its push and shift methods if we only push and shift for adding and deleting elements we follow the FIFO pattern 
+another way to implement it like a list is
+
+{
+    // we create a class for each node within the queue
+    class Node {
+        // each node has two properties, its value and a pointer that indicates the node that follows
+        constructor(value) {
+            this.value = value
+            this.next = null
+        }
+    }
+    //we create a class for the queue
+    class Queue {
+        //the queue has three properties, first node, last node, and size
+        constructor() {
+            this.first = null
+            this.last = null
+            this.size = 0
+        }
+
+        //enqueue a method receives a value and adds it to the "end" of the queue
+        enqueue() {
+            var newNode = new Node(val)
+            if(!this.first) {
+                this.first = newNode
+                this.last = newNode
+            } else {
+                this.last.next = newNode
+                this.last= newNode
+            }
+            return ++this.size
+        }
+
+        //dequeue method eliminates the element at the "beginning" of the queue and returns its value
+        dequeue() {
+            if(!this.first) {
+                return null
+            }
+            var temp = this.first
+            if(this.first = this.last) {
                 this.last = null
             }
             this.first = this.first.next
