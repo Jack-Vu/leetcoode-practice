@@ -40,9 +40,9 @@ you can also implement a stack like a list
 first we create a class for each node within the stack
 
 {
-    class Node {
+    class Node{
         // each node has two properties, its value and a pointer that indicates the node that follows
-        constructor(value) {
+        constructor(value){
             this.value = value
             this.next = null
         }
@@ -50,20 +50,20 @@ first we create a class for each node within the stack
 
     // we create a class for the stack
 
-    class Stack {
+    class Stack{
         // the stack has three properties, the first node, the last node and the stack size
-        constructor() {
+        constructor(){
             this.first = null
             this.last = null
             this.size = 0
         }
           // The push method receives a value and adds it to the "top" of the stack
-        push(val) {
+        push(val){
             var newNode = new Node(val)
-            if(!this.first) {
+            if(!this.first){
                 this.first = newNode
                 this.last = newNode
-            } else {
+            } else{
                 var temp = this.first
                 this.first = newNode
                 this.first.next = temp
@@ -71,12 +71,12 @@ first we create a class for each node within the stack
             return ++this.size
         }
          // The pop method eliminates the element at the "top" of the stack and returns its value
-        pop() {
-            if(!this.first) {
+        pop(){
+            if(!this.first){
                 return null
             }
             var temp = this.first
-            if(this.first === this.last) {
+            if(this.first === this.last){
                 this.last = null
             }
             this.first = this.first.next
@@ -97,29 +97,29 @@ another way to implement it like a list is
 
 {
     // we create a class for each node within the queue
-    class Node {
+    class Node{
         // each node has two properties, its value and a pointer that indicates the node that follows
-        constructor(value) {
+        constructor(value){
             this.value = value
             this.next = null
         }
     }
     //we create a class for the queue
-    class Queue {
+    class Queue{
         //the queue has three properties, first node, last node, and size
-        constructor() {
+        constructor(){
             this.first = null
             this.last = null
             this.size = 0
         }
 
         //enqueue a method receives a value and adds it to the "end" of the queue
-        enqueue() {
+        enqueue(){
             var newNode = new Node(val)
-            if(!this.first) {
+            if(!this.first){
                 this.first = newNode
                 this.last = newNode
-            } else {
+            } else{
                 this.last.next = newNode
                 this.last= newNode
             }
@@ -127,12 +127,12 @@ another way to implement it like a list is
         }
 
         //dequeue method eliminates the element at the "beginning" of the queue and returns its value
-        dequeue() {
-            if(!this.first) {
+        dequeue(){
+            if(!this.first){
                 return null
             }
             var temp = this.first
-            if(this.first = this.last) {
+            if(this.first = this.last){
                 this.last = null
             }
             this.first = this.first.next
@@ -142,3 +142,162 @@ another way to implement it like a list is
     }
 }
 
+Linked Lists
+
+linked lists are a type of ds that stores values in the form of a list
+within the list, each value is considered a node and each node is connected with the following values in the list 
+(or null if the element is the last in the list) through a pointer
+
+2 kinds of linked lists, singly linked list and doubly linked list
+both work similarly the difference is in singly linked list each node has a single pointer that indicates the next node on the list 
+doubly linked list each node has two pointers one pointing to the next node and another pointing to the previous node
+
+the first element of a list is considered the head and the last is considered a tail like arrays the length property is defined as the number of elements the list contains
+
+the main differences compared to arrays are the following:
+list dont have indexes each value only knows the value to which it is connected through pointers
+since it doesnt have indexes we cant access values randomly we want to access a value we always have to look for it by iterating through the list starting from head or tail
+the positive of not having indexes is that insertion/deletion in any part of the list is more efficient than with arrays we just have to redirect the pointers of the neighboring in arrays values need to be re-indexed
+
+like any ds there are different methods to implement in order to operate over the data the most common one is push, pop, unshift, shift, get, set, insert, remove, reverse
+
+first we will see how a singly linked list and then a doubly linked list
+
+{
+    class Node{
+        constructor(val){
+            this.val = val
+            this.next = null
+        }
+    }
+
+    class SinglyLinkedList{
+        constructor(){
+            this.head = null
+            this.tail= null
+            this.length = 0
+        }
+        push(val){
+            const newNode = new Node(val)
+            if(!this.head){
+                this.head = newNode
+                this.tail = this.head
+            } else{
+                this.tail.next = newNode
+                this.tail = newNode
+            }
+            this.length++
+            return this
+        }
+        pop(){
+            if(!this.head) {
+                return undefined 
+            }
+            const current = this.head
+            const newTail = current 
+            while (current.next) {
+                newTail = current
+                current = current.next 
+            }
+            this.tail = newTail
+            this.tail.next = null
+            this.length--
+            if(this.length === 0) {
+                this.head = null
+                this.tail = null
+            }
+            return current
+        }
+        shift(){
+            if(!this.head) {
+                return undefined
+            }
+            var currentHead = this.head
+            this.head = currentHead.next
+            this.length--
+            if(this.length === 0) {
+                this.tail = null
+            }
+            return currentHead 
+        }
+        unshift(val){
+            const newNode new Node(val)
+            if(!this.head) {
+                this.head = newNode
+                this.tail = this.head
+            }
+            newNode.next = this.head
+            this.head = newNode
+            this.length++
+            return this
+        }
+        get(index) {
+            if(index < 0 || index >= this.length) {
+                return null
+            }
+            const counter = 0
+            const current = this.head 
+            while(counter != index) {
+                current = current.next
+                counter++
+            }
+            return current
+        }
+        set(index, val){
+            const foundNode = this.get(index)
+            if(foundNode){
+                foundNode.val = val
+                return true
+            }
+            return false
+        }
+        insert(index, val){
+            if(index < 0 || index > this.length){
+                return false
+            }
+            if(index === this.length) {
+                return !!this.push(val)
+            }
+            if(index === 0){
+            return !!this.unshift(val)
+            }
+            const newNode = new Node(val)
+            const prev = this.get(index - 1)
+            const temp = prev.next
+            prev.next = newNode
+            newNode.next = temp
+            this.length++
+            return true
+        }
+        remove(index){
+            if(index < 0 || index >= this.length){
+                return undefined
+            }
+            if(index === 0){
+                return this.shift()
+            }
+            if(index === this.length - 1){
+                return this.pop()
+            }
+            const previousNode = this.get(index - 1) 
+            const remove = previousNode.next
+            previousNode.next = remove.Next
+            this.length--
+            return removed
+        }
+        reverse(){
+            const node = this.head
+            this.head = this.tail
+            this.tail = node
+            let next
+            const prev = null
+            for(let i = 0; i < this.length; i++) {
+                next = node.next
+                node.next = prev
+                prev = node 
+                node = next
+            }
+            return this
+        }
+    }
+}
