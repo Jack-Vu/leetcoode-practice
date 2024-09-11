@@ -18,4 +18,13 @@ function isValid(nums, target) {
   return -1;
 }
 
-console.log(isValid(array, target));
+// console.log(isValid(array, target));
+
+const word = "this is a long word";
+
+const targetWord = "log";
+
+const char = ["a", "b"];
+
+console.log(word.includes(targetWord));
+console.log("a" in char);
