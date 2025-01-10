@@ -43,20 +43,29 @@ function maxSubArray(nums) {
   return maxSum;
 }
 
-function test() {
-  const binaryRep = (0).toString(2);
-  let countOne = 0;
-  let countZero = 0;
-  for (let i = 0; i < binaryRep.length; i++) {
-    if (binaryRep === "0") {
-      countZero++;
-    }
-    if (binaryRep === "1") {
-      countOne++;
-    }
+function binSearch(nums, target) {
+  let middle = Math.floor(nums.length / 2);
+  if (nums.length === 1 && nums[middle] !== target) {
+    return 1;
   }
-  console.log("Count 0", countZero);
-  console.log("Count 1", countOne);
+  if (nums[middle] === target) {
+    return middle;
+  } else if (target < nums[middle]) {
+    binSearch([...nums.slice(0, middle)], target);
+  } else {
+    binSearch([...nums.slice(middle)], target);
+  }
 }
 
-test();
+const numbers = [{ 1: 2 }, 2, 3, 4, 5];
+const map = { 4: 5, 2: 3, 3: 1 };
+const numSet = new Set(numbers);
+
+console.log(binSearch([-1, 0, 2, 4, 6, 8], 3));
+console.log(numSet);
+console.log(numbers.includes(5));
+console.log(!!map[1]);
+
+for (num of numbers) {
+  console.log(num);
+}
