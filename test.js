@@ -69,3 +69,16 @@ console.log(!!map[1]);
 for (num of numbers) {
   console.log(num);
 }
+
+
+const map1 = {
+  a:1,
+  e:2,
+  c:3
+}
+const k = "d"
+map1[k] = 2
+
+console.log(map1);
+
+

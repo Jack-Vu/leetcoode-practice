@@ -1,8 +1,8 @@
 import math
 
 
-arr = [10, 30, 20, 5]
-target = 25
+arr = [5, 2, 7, 1, 4]
+target = 10
 res = []
 closest = math.inf
 
